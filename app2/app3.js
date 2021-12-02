@@ -1,5 +1,6 @@
 const fs = require('fs');
-fs.unlink('./hello.txt',(err) => {
+// 删除文件
+fs.unlink('./hello1.txt',(err) => {
   if(err) {
     throw err;
     return
