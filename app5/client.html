@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+    const socket = io('http://localhost:9091');
+    socket.on('message',(message) => {
+      console.log('server from ' + message);
+    });
+    socket.on('disconnect',() => {
+      console.log('client disconnect')
+    });
+    socket.on('serverEvent',(data) => {
+      console.log('serverEvent',data);
+      socket.emit('clientEvent',{address:'this is clientEvent',age:30})
+    });
+    socket.emit('broadcastEventClient','take care');
+    socket.on('broadcastEventServer',(data) => {
+      console.log('broadcastEventServer',data);
+    });
+    socket.on('broadcastEventServer',(data) => {
+      console.log('broadcastEventServer2',data);
+    });
+  </script>
+</head>
+<body>
+
+</body>
+</html>

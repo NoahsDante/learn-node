@@ -4,6 +4,7 @@
   "description": "### 文件系统操作",
   "main": "index.js",
   "dependencies": {
+    "socket.io": "^2.3.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {},
